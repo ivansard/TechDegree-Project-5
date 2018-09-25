@@ -1,17 +1,24 @@
+$(document).ready(function(){
+	let retrieveEmployeeModule = (function($){
 
-let retrieveEmployeeModule = (function($){
-
+	//An array where all retrieved employees will be stored
 	let employeeArray = [];
+	//An array which will be used when users search based on employee name
+	//At the beginning it is equal to the whole employee array
 	let filteredEmployeeArray = employeeArray;
+	//The url towards the employee API
 	let url = 'https://randomuser.me/api';
 
+	//Gallery element
 	const $gallery = $('#gallery');
+	//Element which will select all card elements
 	let $cards;
-
-	let searchSeed;
+	//Modal container for a single employee
 	const $modalContainer = $('<div class="modal-container"></div>`');
+	//The employee who's modal container is rendered
 	let activeEmployee;
 
+	//Search input form
 	$inputForm = $(`<form action="#" method="get"></form>`).css('display', 'block');
 
 
@@ -208,12 +215,10 @@ let retrieveEmployeeModule = (function($){
 
 		})
 	}
-
-
 	init();
 
-			
+	})(jQuery); //end module
+}) //end document ready
 
-})(jQuery);
 
 
