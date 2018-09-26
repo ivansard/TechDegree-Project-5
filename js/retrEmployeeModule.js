@@ -31,8 +31,8 @@ $(document).ready(function(){
 																			    .then(renderGalleryHtml)
 																			    .then(addEventListenersToCards)
 																			    .then(appendSearchForm)
-																			    .catch(function(e){
-																			   		console.log(e);
+																			    .catch(function(error){
+																			   		$gallery.html(error.getMessage());
 																			   });
 	};
 
@@ -206,15 +206,16 @@ $(document).ready(function(){
 
 			employeeArray.forEach((employee, index) => {
 				if(employee.name.first.toLowerCase().includes(input) || employee.name.first.toLowerCase().includes(input)){
-					$cards.get(index).style.display = '';
+					$($cards.get(index)).show();
 					filteredEmployeeArray.push(employee);
 				} else {
-					$cards.get(index).style.display = 'none';
+					$($cards.get(index)).hide();
 				}
 			})
 
 		})
 	}
+	//Initializing the module
 	init();
 
 	})(jQuery); //end module
