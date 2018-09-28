@@ -32,7 +32,7 @@ $(document).ready(function(){
 																			    .then(addEventListenersToCards)
 																			    .then(appendSearchForm)
 																			    .catch(function(error){
-																			   		$gallery.html(error.getMessage());
+																			   		$gallery.html(error.message);
 																			   });
 	};
 
